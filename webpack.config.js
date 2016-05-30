@@ -15,9 +15,6 @@ var webpack = require('webpack');
 
 module.exports = {
 	entry: [
-	'script!jquery/dist/jquery.min.js',
-	'script!bootstrap/dist/js/bootstrap.min.js', 
-	'./app/app.jsx',
 		'./app/feedFromBookMyShow.jsx'
 	],
 	externals: {
@@ -37,8 +34,7 @@ module.exports = {
 	resolve: {
 		root: __dirname,
 		alias: {
-			applicationStyles: 'app/styles/app.scss',
-			reactswipe: 'app/styles/SwipeViews.css'
+			applicationStyles: 'app/styles/app.scss'
 		},
 		
 		extensions: ['', '.jsx', '.js' ]
@@ -70,7 +66,8 @@ module.exports = {
 		      {
 		        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
 		        loader: 'url?limit=10000&mimetype=image/svg+xml'
-		      }
+		      },
+		      { test: /\.json$/, loader: "json-loader" }
 		]
 	}
 }
